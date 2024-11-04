@@ -1,0 +1,56 @@
+{
+  "name": "@eatonfyi/base",
+  "version": "0.1.1",
+  "description": "Common config for eatonfyi node/typescript projects",
+  "engines": {
+    "node": "^22.11"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "exports": {
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "/dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "run": "node --import=tsimp src/index.ts",
+    "build": "shx rm -rf dist; pkgroll --minify",
+    "docs": "typedoc ./src/index.ts",
+    "format": "prettier --config prettier.config.js 'src/**/*' --write",
+    "lint": "eslint src/**/*",
+    "lint-and-fix": "eslint src/**/* --fix",
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eaton/base"
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.57.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.8.6",
+    "ava": "^6.2.0",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "pkgroll": "^2.5.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "shx": "^0.3.4",
+    "tsimp": "^2.0.12",
+    "tsx": "^4.19.1",
+    "typedoc": "^0.26.7",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.5.0"
+  }
+}
